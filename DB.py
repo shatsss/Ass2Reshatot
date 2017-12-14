@@ -2,11 +2,13 @@
 from Resource import Resource
 
 
+# class that holds out articles(our DB)
 class DB:
     def __init__(self):
         self.list = []
         self.CreateDBOfArticles()
 
+    # create the DB of our application
     def CreateDBOfArticles(self):
         resources_list = [Resource('http://www.ynet.co.il/articles/0,7340,L-4713571,00.html',
                                    'https://images1.ynet.co.il/PicServer4/2014/08/05/5506384/52203970100690640360no.jpg',
@@ -52,8 +54,10 @@ class DB:
                                    ' אמר הנשיא שאחת מהבטחות הבחירות שלו הייתה להשיג שוויון מגדרי.')]
         self.list = resources_list
 
+    # get the length of our dictionary
     def GetLength(self):
         return len(self.list)
 
+    # get the list that holds out DB
     def GetList(self, i):
         return self.list[i]
