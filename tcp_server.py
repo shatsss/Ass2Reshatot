@@ -1,4 +1,5 @@
 import socket
+import os.path, time
 from datetime import datetime
 
 from DB import DB
@@ -167,14 +168,13 @@ def MakeResponse(data):
 def CreateResponse(version, resNum, connection, type1, type2, data):
     res = version + ' ' + resNum + '\n' + 'Date: ' + get_date() + ' GMT\n' + 'Content-Length: ' + \
           str(len(data)) + '\n' + 'Connection: ' + connection + '\n' + \
-          'Last-Modified: ' + startDate + 'GMT\n' + 'Content-Type: ' + type1 + '/' + type2 + '\n\n' + data
+          'Last-Modified: ' + get_date() + 'GMT\n' + 'Content-Type: ' + type1 + '/' + type2 + '\n\n' + data
     return res
 
 
 # the main of the program, our Server side application
 def main():
-    global db, startDate, mappings
-    startDate = get_date()
+    global db, mappings
     db = DB()
     # create dict of types
     mappings = Mappings()
