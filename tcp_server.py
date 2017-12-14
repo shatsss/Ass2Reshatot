@@ -1,5 +1,4 @@
 import socket
-import os.path, time
 from datetime import datetime
 
 from DB import DB
